@@ -10,7 +10,7 @@ class SatuanController extends Controller
 {
     public function index()
     {
-        $rows = DB::select("SELECT idsatuan, nama_satuan, status FROM satuan ORDER BY idsatuan");
+        $rows = DB::select("SELECT idsatuan, nama_satuan, status FROM v_satuan ORDER BY idsatuan");
         return view('satuan.index', ['rows' => $rows]);
     }
 

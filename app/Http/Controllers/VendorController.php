@@ -11,7 +11,7 @@ class VendorController extends Controller
     public function index()
     {
         $rows = DB::select(
-            "SELECT idvendor, nama_vendor, badan_hukum, status FROM vendor ORDER BY idvendor"
+            "SELECT idvendor, nama_vendor, badan_hukum, status FROM v_vendor ORDER BY idvendor"
         );
         return view('vendor.index', ['rows' => $rows]);
     }

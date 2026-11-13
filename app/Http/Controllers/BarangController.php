@@ -21,16 +21,15 @@ class BarangController extends Controller
 
     private function daftarSatuan(): array
     {
-        return DB::select("SELECT idsatuan, nama_satuan FROM satuan WHERE status = 1 ORDER BY nama_satuan");
+        return DB::select("SELECT idsatuan, nama_satuan FROM v_satuan WHERE status = 1 ORDER BY nama_satuan");
     }
 
     public function index()
     {
         $rows = DB::select(
-            "SELECT b.idbarang, b.nama, b.jenis, s.nama_satuan, b.harga, b.status
-             FROM barang b
-             JOIN satuan s ON s.idsatuan = b.idsatuan
-             ORDER BY b.idbarang"
+            "SELECT idbarang, nama, jenis, nama_satuan, harga, status
+             FROM v_barang
+             ORDER BY idbarang"
         );
         return view('barang.index', ['rows' => $rows]);
     }
